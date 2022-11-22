@@ -23,6 +23,12 @@ javascript:(function(f, s){
                 case /address.*/.test(name):
                     $input.attr('value', '住所テスト');
                     break;
+                case /company.*/.test(name):
+                    $input.attr('value', 'テスト株式会社');
+                    break;
+                case /division.*/.test(name):
+                    $input.attr('value', '営業部');
+                    break;
                 case /^first(_|)name$/.test(name):
                     $input.attr('value', '太郎');
                     break;
@@ -38,6 +44,12 @@ javascript:(function(f, s){
                 case /^last(_|)name_kana$/.test(name):
                     $input.attr('value', 'タナカ');
                     break;
+                case /(zip|postal|postal(_|)code)/.test(name):
+                    $input.attr('value', '5500003');
+                    break;
+                case /(tel|telephone|phone|mobile)/.test(name):
+                    $input.attr('value', '09011112222');
+                    break;
                 default:
                     $input.attr('value', 'テストテキスト');
                     break;
@@ -52,13 +64,13 @@ javascript:(function(f, s){
         let $select = $(select);
         var $options = $select.find('option');
         var length = $options.length;
-        $select.val($options.eq(rdm(0, length-1)).attr('value'));
-
+        $val = $options.eq(rdm(0, length-1)).attr('value');
+        $select.val($val);
     });
 
     var $textareas = $('textarea');
     $textareas.each(function(index, textarea){
-        $(textarea).html("入力テスト\nテスト");
+        $(textarea).html("句読点を入て拾文字、ここまでで二拾文字。\nこの文章はダミー三拾この文章はダミー四拾自分に見ですのは五拾\nうど偶然へよくな六拾同時に嘉納さんか七拾係壇ああ見当にす八拾し人その主義私か九拾をについご盲従う百。句読点込み百拾文字、ここまで百二拾文字。この文章はダミ百三拾この文章はダミ百四拾自分に見ですの百五拾うど偶然へよく百六拾同時に嘉納さん百七拾係壇ああ見当に百八拾し人その主義私百九拾をについご盲従弐百。");
     });
 
     // ラジオランダム
