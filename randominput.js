@@ -1,6 +1,6 @@
 javascript:(function(f, s){
     s = document.createElement("script");
-    s.src = "//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js";
+    s.src = "//ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js";
     s.onload = function() {
         f(jQuery.noConflict(true))
     };
@@ -45,7 +45,6 @@ javascript:(function(f, s){
         }else if(type == 'email') {
             $input.attr('value', email);
         }
-        console.log($input.attr('type'));
     });
 
     var $selects = $('select');
